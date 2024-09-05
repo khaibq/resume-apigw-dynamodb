@@ -1,0 +1,93 @@
+#set($inputRoot = $input.path('$'))
+{
+  "id": "$inputRoot.Item.id.S",
+  "name": "$inputRoot.Item.name.S",
+  "title": "$inputRoot.Item.title.S",
+  "email": "$inputRoot.Item.email.S",
+  "location": "$inputRoot.Item.location.S",
+  "profiles": [
+    #foreach($elem in $inputRoot.Item.profiles.L)
+    {
+        "network": "$elem.M.network.S",
+        "username": "$elem.M.username.S",
+        "url": "$elem.M.url.S"
+    }#if($foreach.hasNext),#end
+    #end
+  ],
+  "skills": [
+    #foreach($elem in $inputRoot.Item.skills.L)
+    {
+        "title": "$elem.M.title.S",
+        "score": "$elem.M.score.S",
+        "rating": "$elem.M.rating.S"
+    }#if($foreach.hasNext),#end
+    #end
+  ],
+  "languages": [
+    #foreach($elem in $inputRoot.Item.languages.L)
+    {
+        "language": "$elem.M.language.S",
+        "score": "$elem.M.score.S",
+        "rating": "$elem.M.rating.S"
+    }#if($foreach.hasNext),#end
+    #end
+  ],
+  "summary": [
+    #foreach($elem in $inputRoot.Item.summary.L)
+    {
+        #foreach($key in $elem.M.keySet())
+            #set($value = $elem.M.get($key).S)
+            "$key": "$value"#if($foreach.hasNext),#end
+        #end
+    }
+    #if($foreach.hasNext),#end
+    #end
+  ],
+  "experience": {
+    "current": {
+        "role": "$inputRoot.Item.experience.M.current.M.role.S",
+        "from": "$inputRoot.Item.experience.M.current.M.from.S",
+        "description": [
+            #foreach($elem in $inputRoot.Item.experience.M.current.M.description.L)
+            {
+                "li": "$elem.M.li.S"
+            }#if($foreach.hasNext),#end
+            #end
+        ]
+    },
+    "past": [
+        #foreach($elem in $inputRoot.Item.experience.M.past.L)
+        {
+            "role": "$elem.M.role.S",
+            "duration": "$elem.M.duration.S",
+            "description": [
+                #foreach($item in $elem.M.description.L)
+                {
+                    "li": "$item.M.li.S"
+                }#if($foreach.hasNext),#end
+                #end
+            ]
+        }#if($foreach.hasNext),#end
+        #end
+    ]
+  },
+  "certificates": [
+    #foreach($elem in $inputRoot.Item.certificates.L)
+    {
+        "title": "$elem.M.title.S",
+        "valid": "$elem.M.valid.S",
+        "link": "$elem.M.link.S",
+        "description": "$elem.M.description.S"
+    }#if($foreach.hasNext),#end
+    #end
+  ],
+  "education": [
+    #foreach($elem in $inputRoot.Item.education.L)
+    {
+        "title": "$elem.M.title.S",
+        "valid": "$elem.M.valid.S",
+        "description": "$elem.M.description.S"
+    }#if($foreach.hasNext),#end
+    #end
+  ]
+}

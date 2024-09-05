@@ -1,0 +1,127 @@
+{
+    "id": "khaibq",
+    "name": "Khai Bui",
+    "title": "Full Stack Developer",
+    "email": "khaibq@gmail.com",
+    "location": "HCMC, Vietnam",
+    "profiles": [
+      {
+        "network": "fa fa-linkedin",
+        "username": "linkedin/in/khaibq",
+        "url": "https://www.linkedin.com/in/khaibq/"
+      },
+      {
+        "network": "fa fa-github",
+        "username": "gibhub/khaibq",
+        "url": "https://github.com/khaibq"
+      }
+    ],
+    "skills": [
+      {
+        "title": "AWS Developer",
+        "score": "90%",
+        "rating": "Proficient"
+      },
+      {
+        "title": "Python",
+        "score": "90%",
+        "rating": "Proficient"
+      },
+      {
+        "title": "NodeJS/TypeScript",
+        "score": "80%",
+        "rating": "Competent"
+      },
+      {
+        "title": "JavaScript",
+        "score": "75%",
+        "rating": "Competent"
+      },
+      {
+        "title": "HTML/CSS",
+        "score": "75%",
+        "rating": "Competent"
+      }
+    ],
+    "languages": [
+      {
+        "language": "Vietnamese",
+        "score": "100%",
+        "rating": "Native"
+      },
+      {
+        "language": "English",
+        "score": "90%",
+        "rating": "Fluent"
+      }
+    ],
+    "summary": [
+      {
+        "para": "Motivated a lot by a passion for innovation and emerging technologies, I wish to persue my recent career to Cloud Architecture."
+      },
+      {
+        "para": "Experienced professional with a Bachelor's degree in Electrical Engineering. Initially gained technical skill experience as a Field Service Engineer in the Medical Diagnostics Industry. Subsequently transitioned into a leadership role within the Cleaning Industry, where I successfully managed operations and implemented process improvements."
+      },
+      {
+        "para": "Currently leveraging my technical expertise to design, implement, and manage cloud-based solutions for some real-world own projects by Linux, AWS, Git/GitHub, Python, IaC, Orchestration, Containerization, CI/CD, Version Control, Docker."
+      }
+    ],
+    "experience": {
+      "current": {
+        "role": "Developer / Freelancer",
+        "from": "Sep 2022 - ",
+        "description": [
+          {
+            "li": "AWS with CI/CD, Docker, Lambda"
+          },
+          {
+            "li": "Python Programming for auto trading bot for cryptocurrency"
+          },
+          {
+            "li": "Date scraping, Web scraping"
+          }
+        ]
+      },
+      "past": [
+        {
+          "role": "Business Management",
+          "duration": "Dec 2007 - Aug 2022",
+          "description": [
+            {
+              "li": "Run owned private company."
+            }
+          ]
+        },
+        {
+          "role": "Technical Engineer",
+          "duration": "Dec 1999 - Dec 2007",
+          "description": [
+            {
+              "li": "Senior Field Service Engineer."
+            }
+          ]
+        }
+      ]
+    },
+    "certificates": [
+      {
+        "title": "AWS Certified Developer – Associate",
+        "valid": "Aug 2024 - Aug 2027",
+        "link": "https://www.credly.com/badges/322ab034-808c-4b5a-828c-db192df156b2/linked_in_profile",
+        "description": "Amazon Web Services (AWS)"
+      },
+      {
+        "title": "AWS Knowledge: Architecting",
+        "valid": "From Jan 2024",
+        "link": "https://www.credly.com/badges/16278410-f640-4fda-808a-c4d438f15a56/linked_in_profile",
+        "description": "Amazon Web Services (AWS)"
+      }
+    ],
+    "education": [
+      {
+        "title": "HCMC Polytechnic University",
+        "valid": "1989 - 1994",
+        "description": "Bachelor Degree as an Electrical Engineer"
+      }
+    ]
+  }

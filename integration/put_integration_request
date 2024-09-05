@@ -1,0 +1,141 @@
+{
+    "TableName": "$input.params('tablename')",
+    "Item": {
+        "id": {"S": "$input.path('$.id')"},
+        "name": {"S": "$input.path('$.name')"},
+        "title": {"S": "$input.path('$.title')"},
+        "email": {"S": "$input.path('$.email')"},
+        "location": {"S": "$input.path('$.location')"},
+        "profiles": {"L": [
+            #foreach($elem in $input.path('$.profiles'))
+            {"M": {
+                #foreach($key in $elem.keySet())
+                    #set($value = $elem.get($key))
+                    "$key": { "S": "$value" }#if($foreach.hasNext()),#end
+                #end
+            }
+            }#if($foreach.hasNext()),#end
+            #end
+            ]
+        },
+        "skills": {"L": [
+            #foreach($elem in $input.path('$.skills'))
+            {"M": {
+                #foreach($key in $elem.keySet())
+                    #set($value = $elem.get($key))
+                    "$key": { "S": "$value" }#if($foreach.hasNext()),#end
+                #end
+            }
+            }#if($foreach.hasNext()),#end
+            #end
+            ]
+        },
+        "languages": {"L": [
+            #foreach($elem in $input.path('$.languages'))
+            {"M": {
+                #foreach($key in $elem.keySet())
+                    #set($value = $elem.get($key))
+                    "$key": { "S": "$value" }#if($foreach.hasNext()),#end
+                #end
+            }
+            }#if($foreach.hasNext()),#end
+            #end
+            ]
+        },
+        "summary":{
+            "L": [
+                #foreach($elem in $input.path('$.summary'))
+                {
+                    "M": {
+                        #foreach($key in $elem.keySet())
+                            #set($value = $elem.get($key))
+                            "$key": { "S": "$value" }#if($foreach.hasNext()),#end
+                        #end
+                    }
+                }#if($foreach.hasNext()),#end
+                #end
+            ]
+        },
+        "experience": {
+            "M": {
+                "current": {
+                    "M": {
+                        "role": {"S": "$input.path('$.experience.current.role')"},
+                        "from": {"S": "$input.path('$.experience.current.from')"},
+                        "description": {
+                            "L": [
+                                #foreach($elem in $input.path('$.experience.current.description'))
+                                {
+                                    "M": {
+                                        #foreach($key in $elem.keySet())
+                                        #set($value = $elem.get($key))
+                                        "$key": { "S": "$value" }#if($foreach.hasNext()),#end
+                                        #end
+                                    }
+                                }#if($foreach.hasNext()),#end
+                                #end
+                            ]
+                        }
+                    }
+                },
+                "past": {
+                    "L": [
+                        #foreach($elem in $input.path('$.experience.past'))
+                        {
+                            "M": {
+                                "role": {"S": "$elem.role"},
+                                "duration": {"S": "$elem.duration"},
+                                "description": {
+                                    "L": [
+                                        #foreach($description in $elem.description)
+                                        {
+                                            "M": {
+                                                #foreach($key in $description.keySet())
+                                                #set($value = $description.get($key))
+                                                "$key": { "S": "$value" }#if($foreach.hasNext()),#end
+                                                #end
+                                            }
+                                        }#if($foreach.hasNext()),#end
+                                        #end
+                                    ]
+                                }
+                            }
+                        }
+                        #if($foreach.hasNext()),#end
+                        #end
+                    ]
+                }
+            }
+        },
+        "certificates": {
+            "L": [
+                #foreach($elem in $input.path('$.certificates'))
+                {
+                    "M": {
+                        #foreach($key in $elem.keySet())
+                            #set($value = $elem.get($key))
+                            "$key": { "S": "$value" }#if($foreach.hasNext()),#end
+                        #end
+                    }
+                }
+                #if($foreach.hasNext()),#end
+                #end
+            ]
+        },
+        "education": {
+            "L": [
+                #foreach($elem in $input.path('$.education'))
+                {
+                    "M": {
+                        #foreach($key in $elem.keySet())
+                            #set($value = $elem.get($key))
+                            "$key": { "S": "$value" }#if($foreach.hasNext()),#end
+                        #end
+                    }
+                }
+                #if($foreach.hasNext()),#end
+                #end
+            ]
+        }
+    }
+}

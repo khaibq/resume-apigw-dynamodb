@@ -1,0 +1,6 @@
+{
+    "TableName": "$input.params('tablename')",
+    "Key": {
+        "id": {"S": "$input.params('id')"}
+    }
+}
